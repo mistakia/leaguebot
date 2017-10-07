@@ -1,0 +1,28 @@
+{
+  "name": "leaguebot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^2.5.0",
+    "espnff": "github:krahimian/espnff",
+    "groupme": "^0.5.7",
+    "jsonfile": "^4.0.0",
+    "logplease": "^1.2.14",
+    "moment": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krahimian/leaguebot.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krahimian/leaguebot/issues"
+  },
+  "homepage": "https://github.com/krahimian/leaguebot#readme"
+}
