@@ -53,7 +53,7 @@ async.concat(config.opts, function(opts, next) {
       new_items.push(item)
   })
   logger.info(`${new_items.length} new items`)
-  
+
   if (new_items.length) {
 
     const messages = []
@@ -64,7 +64,12 @@ async.concat(config.opts, function(opts, next) {
     })
 
     async.each(messages, function(message, next) {
-      logger.info('pushing message to groupme')
+      logger.info(`pushing message to groupme: ${message}`)
+
+      if (config.test) {
+        return next()
+      }
+
       API.Bots.post(config.access_token, config.bot_id, message, {}, next)
     }, function(err) {
       if (err) {
@@ -82,5 +87,5 @@ async.concat(config.opts, function(opts, next) {
 
       jsonfile.writeFileSync(data_path, data)
     })
-  }  
+  }
 })

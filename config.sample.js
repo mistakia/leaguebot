@@ -1,4 +1,5 @@
 module.exports = {
+  test: false,
   bot_id: '',
   access_token: '',
   opts: [{
