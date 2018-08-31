@@ -1,7 +1,7 @@
 {
   "name": "leaguebot",
   "version": "0.0.1",
-  "description": "",
+  "description": "GroupMe bot that scrapes ESPN Fantasy Football leagues for transaction activities (trade, adds, drops, moves)",
   "main": "index.js",
   "dependencies": {
     "async": "^2.5.0",
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krahimian/leaguebot.git"
+    "url": "git+https://github.com/mistakia/leaguebot.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/krahimian/leaguebot/issues"
+    "url": "https://github.com/mistakia/leaguebot/issues"
   },
-  "homepage": "https://github.com/krahimian/leaguebot#readme"
+  "homepage": "https://github.com/mistakia/leaguebot#readme"
 }
