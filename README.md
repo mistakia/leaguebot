@@ -25,7 +25,7 @@ accepts an array of objects used to fetch league transactions with the following
 - `teamId` (Number): the team you want activities for, or `-1` for all teams
 - `tranType` (Number): should be set to `2` to get transactions.
 
-Setup a crontab (or other script scheduler)
+Setup a crontab (or other script scheduler). Currently, it only fetches transactions for the last day so make sure it runs at least daily.
 ```
 */20 * * * * node /path/to/leaguebot/index.js
 ```
