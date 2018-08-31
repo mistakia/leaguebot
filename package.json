@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "async": "^2.5.0",
-    "espnff": "github:krahimian/espnff",
+    "espnff": "github:mistakia/espnff",
     "groupme": "^0.5.7",
     "jsonfile": "^4.0.0",
     "logplease": "^1.2.14",
