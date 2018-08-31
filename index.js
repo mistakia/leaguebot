@@ -23,7 +23,7 @@ const startDate = moment().subtract(1, 'day').format('YYYYMMDD')
 
 logger.info(`getting activity from ${startDate} to ${endDate}`)
 
-const countError = function() {
+const countError = () => {
   if (!data.error_count)
     data.error_count = 0
 
@@ -31,13 +31,13 @@ const countError = function() {
   jsonfile.writeFileSync(data_path, data)
 }
 
-async.concat(config.opts, function(opts, next) {
+async.concat(config.opts, (opts, next) => {
   const options = Object.assign(opts, {startDate: startDate, endDate: endDate})
   logger.info(options)
 
   activity.get(options, next)
 
-}, function(err, items) {
+}, (err, items) => {
   if (err) {
     countError()
     logger.error(err)
@@ -48,22 +48,18 @@ async.concat(config.opts, function(opts, next) {
 
   let new_items = []
 
-  items.forEach(function(item, index) {
-    if (!data[item.date])
-      new_items.push(item)
-  })
+  items.forEach(item => !data[item.date] && new_items.push(item))
   logger.info(`${new_items.length} new items`)
 
   if (new_items.length) {
 
     const messages = []
 
-    new_items.forEach(function(item) {
-      const detail = item.detail[0]
-      messages.push(detail.full)
+    new_items.forEach(item => {
+      item.detail.forEach(detail => messages.push(detail.full))
     })
 
-    async.each(messages, function(message, next) {
+    async.each(messages, (message, next) => {
       logger.info(`pushing message to groupme: ${message}`)
 
       if (config.test) {
@@ -71,7 +67,7 @@ async.concat(config.opts, function(opts, next) {
       }
 
       API.Bots.post(config.access_token, config.bot_id, message, {}, next)
-    }, function(err) {
+    }, (err) => {
       if (err) {
         countError()
         return logger.error(err)
@@ -81,9 +77,7 @@ async.concat(config.opts, function(opts, next) {
 
       logger.info('saving new items')
 
-      new_items.forEach(function(item) {
-        data[item.date] = item
-      })
+      new_items.forEach(item => data[item.date] = item)
 
       jsonfile.writeFileSync(data_path, data)
     })
