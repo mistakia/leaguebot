@@ -59,14 +59,16 @@ async.concat(config.opts, (opts, next) => {
       item.detail.forEach(detail => messages.push(detail.full))
     })
 
-    async.each(messages, (message, next) => {
+    async.eachSeries(messages, (message, next) => {
       logger.info(`pushing message to groupme: ${message}`)
 
       if (config.test) {
         return next()
       }
 
-      API.Bots.post(config.access_token, config.bot_id, message, {}, next)
+      API.Bots.post(config.access_token, config.bot_id, message, {}, (err) => {
+        setTimeout(next.bind(null, err), 2000)
+      })
     }, (err) => {
       if (err) {
         countError()
