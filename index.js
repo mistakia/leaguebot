@@ -1,4 +1,4 @@
-const activity = require('espnff').activity
+const { activity } = require('espnff')
 const moment = require('moment')
 const jsonfile = require('jsonfile')
 const Logger = require('logplease')
@@ -56,7 +56,7 @@ async.concat(config.opts, (opts, next) => {
     const messages = []
 
     new_items.forEach(item => {
-      item.detail.forEach(detail => messages.push(detail.full))
+      messages.push(item.detail.full)
     })
 
     async.eachSeries(messages, (message, next) => {
