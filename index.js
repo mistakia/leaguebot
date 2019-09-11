@@ -31,7 +31,7 @@ const countError = () => {
   jsonfile.writeFileSync(data_path, data)
 }
 
-async.concat(config.opts, (opts, next) => {
+async.concatSeries(config.opts, (opts, next) => {
   const options = Object.assign(opts, {startDate: startDate, endDate: endDate})
   logger.info(options)
 
