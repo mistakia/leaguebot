@@ -9,7 +9,7 @@
     "groupme": "^0.5.7",
     "jsonfile": "^4.0.0",
     "logplease": "^1.2.14",
-    "moment": "^2.18.1"
+    "moment": "^2.29.2"
   },
   "devDependencies": {},
   "scripts": {
