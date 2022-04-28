@@ -4,7 +4,7 @@
   "description": "GroupMe bot that scrapes ESPN Fantasy Football leagues for transaction activities (trade, adds, drops, moves)",
   "main": "index.js",
   "dependencies": {
-    "async": "^2.5.0",
+    "async": "^2.6.4",
     "espnff": "github:mistakia/espnff",
     "groupme": "^0.5.7",
     "jsonfile": "^4.0.0",
